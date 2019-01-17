@@ -30,8 +30,9 @@ steps:
   displayName: 'Echo build variables values'
 
 - script: |
-    sed -i 's#image: .*#image: $(TAG_DEV)#' manifest/$(APP_NAME).yml
-    cat manifest/$(APP_NAME).yml
+    sed -i 's#image: .*#image: $(TAG_DEV)#' manifest/dev-$(APP_NAME).yml
+    sed -i 's#image: .*#image: $(TAG_DEV)#' manifest/staging-$(APP_NAME).yml
+    sed -i 's#image: .*#image: $(TAG_DEV)#' manifest/production-$(APP_NAME).yml
   displayName: 'Update Kubernetes YAML'
 
 - task: Maven@3
